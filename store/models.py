@@ -55,6 +55,16 @@ class Order(models.Model):
 		total = sum([item.quantity for item in orderitems])
 		return total 
 
+
+	@property
+	def shipping(self):
+		shipping = False
+		orderitems = self.orderitem_set.all()
+		for i in orderitems:
+			if i.product.digital == False:
+				shipping = True
+		return shipping
+
 	
 	def __str__(self):
 		return str(self.id)
@@ -69,6 +79,7 @@ class OrderItem(models.Model):
 	def get_total(self):#particuler orderitem price
 		total = self.quantity * self.product.price
 		return total
+	
 
 class ShippingAddress(models.Model):
 	customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)

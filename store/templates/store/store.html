@@ -10,7 +10,9 @@
 				<h6><strong>{{product.name}}</strong></h6>
 				<hr>
 
-				<button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
+				<button data-action = "add" data-product = "{{product.id}}" class="btn btn-outline-secondary add-btn update-cart ">
+					Add to Cart
+				</button>
 				<a class="btn btn-outline-success" href="#">View</a>
 				<h4 style="display: inline-block;float:right;"><strong>${{product.price}}</strong></h4>
 

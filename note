@@ -1,3 +1,8 @@
 =>also add discount
 =>select on particular items i.e when i click on grocery then show grocery items electronic for electronic for electronic items
 =>
+
+-------------------------------
+=>One customer can have only one order id and many product id
+=>In this project quantity add and remove is done with same id that is used for adding cart item to the cart
+=>Main thing involves to add item to the cart are (data-action,class,data-product={{product.id}})
