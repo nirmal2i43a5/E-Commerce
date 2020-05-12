@@ -4,6 +4,8 @@ import json
 import datetime
 from .models import *
 from .codeuse import cookieCart,cartData,guestOrder
+from django.db.models import Q
+from django.template.loader import render_to_string
 
 # Create your views here.
 
@@ -23,7 +25,10 @@ def store(request):
 		items = cookieData['items']
 
 	products = Product.objects.all()
-	context = {'products':products, 'cartItems':cartItems}
+
+	# products = Product.objects.filter(category='Electric items')#render only electric item products
+	
+	context = {'products':products, 'cartItems':cartItems,'items':items}
 	return render(request, 'store/store.html', context)
 
 
@@ -95,7 +100,9 @@ def updateItem(request):
 
 def processOrder(request):
 	transaction_id = datetime.datetime.now().timestamp()
+	print(transaction_id)
 	data = json.loads(request.body)
+	
 
 	if request.user.is_authenticated:
 		customer = request.user.customer
@@ -103,7 +110,8 @@ def processOrder(request):
 	else:
 		customer, order = guestOrder(request, data)
 
-	total = float(data['form']['total'])
+	total = float(data['form']['total'])#it the total price after checkout
+
 	order.transaction_id = transaction_id
 
 	if total == order.get_cart_total:
@@ -120,4 +128,26 @@ def processOrder(request):
 		zipcode=data['shipping']['zipcode'],
 		)
 
-	return JsonResponse('Payment submitted..', safe=False)
+	return JsonResponse('Payment submitted.(rsponse from processOrder views)', safe=False)
+
+def product_view(request):
+	return render(request,'store/product_desc.html')
+
+def search(request):
+	data = dict()
+	field_value = request.GET.get('query')
+	print(field_value)
+	
+	if field_value:
+		products = Product.objects.filter(name__icontains = field_value)
+		data['html_list'] = render_to_string('store/get_search_products.html',{'products':products},request = request)
+		
+		return JsonResponse(data)
+
+	else:
+		products = Product.objects.all()
+	   
+		context = {'products': products}
+		data['html_list'] = render_to_string('store/get_search_products.html',context,request=request)
+
+		return JsonResponse(data)

@@ -15,11 +15,31 @@ class Customer(models.Model):
 
 
 class Product(models.Model):
-	name = models.CharField(max_length=200)
-	price = models.DecimalField(max_digits=10, decimal_places=2)
+	category = (
+		
+			('Mens shoes and clothing','Mens shoes and clothing'),
+			('Womens shoes and clothing','Womens shoes and clothing'),
+			('Laptop','Laptop'),('Desktop','Desktop'),('Camera','Camera'),('Mobile','Mobile'),
+			('Laptop accessories','Laptop accessories'),('Storage','Storage'),
+			('Mobile accessories','Mobile accessories'),('Audio','Audio'),('Antivirus','Antivirus'),
+			('Camera accessories','Camera accessories'),('Breakfast & Snacks','Breakfast & Snacks'),
+			('Wines,beers,& spirits','Wines,beers,& spirits'),('Cooking ingredients','Cooking ingredients'),
+			('Kitchen,Dining, & Bedding','Kitchen,Dining, & Bedding'),('Media,Books, & Music','Media,Books, & Music'),
+			('Watches','Watches'),('Sunglasses & Eyeglasses','Sunglasses & Eyeglasses'),
+			('Make up & Body care','Make up & Body care'),('Food supplements','Food supplements')
+   		
+            
 
+
+	)
+	name = models.CharField(max_length=200)
+	price = models.DecimalField(default = 0, max_digits = 10,decimal_places=1)
+
+	discount = models.DecimalField(default = 0, max_digits = 10,decimal_places=1)
 	digital = models.BooleanField(default=False, null=True, blank=True)
 	image = models.ImageField(upload_to='images', null=True, blank=True)
+	category=models.CharField(max_length=200,null=True,choices=category)
+	
 
 	def __str__(self):
 		return self.name
@@ -31,6 +51,13 @@ class Product(models.Model):
 		except:
 			url = ''
 		return url
+	
+	@property
+	def get_final_price_after_discount(self):
+		return (self.price) -  (self.price * (self.discount)/100)
+	
+
+ 
 
 
 class Order(models.Model):
@@ -74,11 +101,43 @@ class OrderItem(models.Model):
 	order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
 	quantity = models.IntegerField(default=0, null=True, blank=True)
 	date_added = models.DateTimeField(auto_now_add=True)
+	# description = models.TextField()
+	
 
 	@property
 	def get_total(self):#particuler orderitem price
 		total = self.quantity * self.product.price
 		return total
+
+	@property
+	def get_total_discount_item_price(self):
+		return self.quantity * (self.product.price * (self.product.discount)/100)
+
+	#i use decimal field and it is not callable so i use long code 
+
+	@property
+	def get_final_price_after_discount(self):
+		return (self.quantity * self.product.price) - self.quantity * (self.product.price * (self.product.discount)/100)
+
+
+
+	@property
+	def total_save_price(self):
+		total_save = 0.00
+		total_save = self.quantity * (self.product.price * (self.product.discount)/100)
+
+		for price in total_save:
+			total_discount_price = total_save + self.quantity * (self.product.price * (self.product.discount)/100)
+
+		return total_save
+
+
+		
+		
+
+	
+
+	
 	
 
 class ShippingAddress(models.Model):

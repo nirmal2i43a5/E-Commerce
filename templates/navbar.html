@@ -1,10 +1,11 @@
 
     {% load static %}
     <nav class="navbar navbar-expand-lg navbar-info bg-info">
-        <a class="navbar-brand" style="color:white;" href="{% url 'store_app:store' %}">E-commerce</a>
+        <a class="navbar-brand" style="color:white;" href="/">E-commerce</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+       
   
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -13,8 +14,10 @@
             </li>
        
           </ul>
+                  {% include 'search.html' %}
+                  
           <div class="form-inline my-2 my-lg-0">
-               <a href="#"class="btn btn-warning">Login</a>
+               <a href="#"class="btn btn-warning"><i class="fas fa-sign-in-alt"></i> Login</a>
                
                <a href="{% url 'store_app:cart' %}">
                   <img  id="cart-icon" src="{% static 'images/cart.jpg' %}">
@@ -22,8 +25,20 @@
               <p id="cart-total">{{cartItems}}</p>
   
           </div>
+         
         </div>
       </nav>
+
+      <style>
+        #inputSize{
+          width: 100%;
+        
+          padding: 12px 180px 20px 20px;
+       
+
+
+        }
+      </style>
 
 
 
@@ -45,7 +60,7 @@
             }
             return cookieValue;
         }
-        var csrftoken = getToken('csrftoken')
+   
 
 
         //set cookie for guest checkout 
@@ -69,18 +84,22 @@
 
 		    // Return null if not found
 		    return null;
-		}
-		var cart = JSON.parse(getCookie('cart'))
+    }
+  //When a visitor comes to our website, we want to create a cookie for our cart. Regardless of whether they are logged in or not.
+    var cart = JSON.parse(getCookie('cart'))//'cart' argument come from addCookieItem in cart.js
+    //i use this in guest checkout concept for non login user
 //If our browser does not contain a cookie called "cart", which is expected on the first load, let's create one.
-		if (cart == undefined){
-			cart = {}
+		if (cart == undefined){//means if cart is empty ie.when return null from getCookie()
+			cart = {}//empty javascript object
 			console.log('Cart Created!', cart)
 			document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
 		}
-    console.log('Cart:', cart)
+    console.log('Cart::::', cart)//if card is defined
     /*==>A cookie is a key-value part so we set the name with "cart=" and then stringify the Javascript object (cart), 
     then set the domain so we have this same cookie on every page.
 
       ==>If we don't add ";domain=;path/" then we will create a new cookie on each page and our cart will NOT be consistent, so be sure to add this.*/
-      
-      </script>
+
+
+
+</script>

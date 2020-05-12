@@ -77,10 +77,11 @@ function updateUserOrder(productId, action){
 		   return response.json();
 		})
 		.then((data) => {
-		    location.reload()// This will alow us to see changes appear in our cart immediately once we render them.
+		   location.reload()// This will alow us to see changes appear in our cart immediately once we render them.
 		});
 }
-//guest cookie
+
+//guest cookie for non login user
 
 function addCookieItem(productId, action){
 	console.log('User is not authenticated')
