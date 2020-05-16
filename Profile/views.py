@@ -5,7 +5,7 @@ from django.contrib.auth.views import LoginView,LogoutView
 from django.views.generic import CreateView
 from Profile.forms import CustomerLoginForm,SignUpForm
 
-# Create your views here.
+# Create your views here.Perfect
 def dashboard(request):
 	return render(request,'profile/dashboard.html')
 
@@ -13,8 +13,7 @@ class CustomerLoginForm(LoginView):
 	template_name = 'profile/login.html'
 	form_class = CustomerLoginForm
 	
-	# redirect_authenticated_user = True
-	# is_superuser=False
+
 	
 	def get_success_url(self):#default
 		
@@ -39,6 +38,5 @@ class SignUpView(CreateView):
 
 class Logout(LogoutView):
     pass
-	
-  
-	
+
+

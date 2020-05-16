@@ -1,7 +1,5 @@
 from django.db import models
-
 from django.contrib.auth.models import User
-
 from django.dispatch import receiver
 from django.db.models.signals import post_save#user object  signal create hunxa
 
@@ -24,10 +22,8 @@ class Customer(models.Model):
 		if created:
 			Customer.objects.create(user=instance)
 			instance.customer.save()
-
-
+   
 class Product(models.Model):
-
 	category = (
 		
 			('Mens shoes and clothing','Mens shoes and clothing'),
@@ -40,10 +36,6 @@ class Product(models.Model):
 			('Kitchen,Dining, & Bedding','Kitchen,Dining, & Bedding'),('Media,Books, & Music','Media,Books, & Music'),
 			('Watches','Watches'),('Sunglasses & Eyeglasses','Sunglasses & Eyeglasses'),
 			('Make up & Body care','Make up & Body care'),('Food supplements','Food supplements')
-   		
-			
-
-
 	)
 	name = models.CharField(max_length=200)
 	price = models.DecimalField(default = 0, max_digits = 10,decimal_places=1)
@@ -69,9 +61,6 @@ class Product(models.Model):
 	def get_final_price_after_discount(self):
 		return (self.price) -  (self.price * (self.discount)/100)
 	
-
- 
-
 
 class Order(models.Model):
 	customer = models.ForeignKey(
@@ -146,13 +135,6 @@ class OrderItem(models.Model):
 
 
 		
-		
-
-	
-
-	
-	
-
 class ShippingAddress(models.Model):
 	customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
 	order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
