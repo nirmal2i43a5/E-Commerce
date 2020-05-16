@@ -23,6 +23,7 @@
 //         }
 
 //----------------same above logic using jquery----------------------------------
+
 $(document).ready(function(){
     $('.update-cart').on('click',function(){
         var updateBtns = $(this);
@@ -38,7 +39,8 @@ $(document).ready(function(){
             addCookieItem(productId, action)//I add this when use guest visit that is not login
                     
         }else{
-                 updateUserOrder(productId, action)
+				 updateUserOrder(productId, action)
+				 
 
             
         }
@@ -80,6 +82,7 @@ function updateUserOrder(productId, action){
 		   location.reload()// This will alow us to see changes appear in our cart immediately once we render them.
 		});
 }
+
 
 //guest cookie for non login user
 

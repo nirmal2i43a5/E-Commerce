@@ -1,235 +1,232 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce</title>
-    {% include 'css.html' %}
-    {% include 'js.html' %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce</title>
+  {% include 'css.html' %}
+  {% include 'js.html' %}
+
+  <!--below link is for toggle bar-->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
 </head>
+
 <body>
-      <nav class="navbar navbar-expand-lg navbar-info bg-info">
-        <a class="navbar-brand" style="color:white;" href="{% url 'store_app:store' %}">E-commerce</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-       
-  
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" style="color:white;" href="{% url 'store_app:store' %}">Store <span class="sr-only">(current)</span></a>
+
+
+
+
+
+
+
+
+
+  <br>
+
+
+
+  <div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <a class="navbar-brand" style="color:white;" href="{% url 'store_app:store' %}">E-Commerce Store</a>
+      </div>
+
+      <ul class="list-unstyled components">
+
+        <li>
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Sports and
+            outdoor</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li>
+              <a href="{% url 'category_app:mens_items' %}">Men's shoes and clothing</a>
             </li>
-       
+            <li>
+              <a href="{% url 'category_app:womens_items' %}">Women's shoes and clothing</a>
+            </li>
+
           </ul>
-         
-          <div class="form-inline my-2 my-lg-0">
-               <a href="#"class="btn btn-warning"> <i class="fas fa-sign-in-alt"></i> Login</a>
-               
-            
-  
-          </div>
-         
+        </li>
+
+       
+        <li>
+          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Electronic
+            Devices</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+            <li>
+              <a href="{% url 'category_app:laptops' %}">Laptop</a>
+            </li>
+            <li>
+              <a href="{% url 'category_app:cameras' %}">Camera</a>
+            </li>
+            <li>
+              <a href="{% url 'category_app:mobiles' %}">Mobile</a>
+            </li>
+          </ul>
+        </li>
+        
+        <li>
+          <a href="#pageSubmenu" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">Electronic
+            accessories</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+            <!-- <li>
+              <a href="#">Laptop accessories</a>
+            </li>
+            <li>
+              <a href="#">Camera accessories</a>
+            </li>
+            <li>
+              <a href="#">Mobile accessories</a>
+            </li>
+            <li>
+              <a href="#">Storage</a>
+            </li>
+            <li>
+              <a href="#">Storage</a>
+            </li>
+            <li>
+              <a href="#">Antivirus</a>
+            </li>
+            <li>
+              <a href="#">Audio</a>
+            </li> -->
+          </ul>
+        </li>
+        <li>
+          <a href="#pageSubmenu" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">Groceries</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+            <!-- <li>
+              <a href="">Breakfast and snacks</a>
+            </li>
+            <li>
+              <a href="">Beer,wine, & drinks</a>
+            </li>
+            <li>
+              <a href="">Cooking Ingredients</a>
+            </li> -->
+          </ul>
+        </li>
+
+        <li>
+          <a href="#pageSubmenu" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">Home and Lifestyle</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+            <!-- <li>
+              <a href="#"></a>
+            </li>
+            <li>
+              <a href="#">Kitchen,Dining,&Bedding</a>
+            </li>
+            <li>
+              <a href="#">Media,Books, and Music</a>
+            </li> -->
+          </ul>
+        </li>
+     
+        <li>
+          <a href="#pageSubmenu" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle"> Watch and accessories</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+            <!-- <li>
+              <a href="#"></a>
+            </li>
+            <li>
+              <a href="#">Watches</a>
+            </li>
+            <li>
+              <a href="#">Sunglasses and Eyeglasses</a>
+            </li> -->
+          </ul>
+        </li>
+      </ul>
+
+
+
+    </nav>
+
+
+    <div id="content">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <div class="container-fluid">
+
+          <button type="button" id="sidebarCollapse" class="btn btn-warning">
+            <i class="fas fa-align-left"></i>
+            <span>Toggle Sidebar</span>
+          </button>
+          <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa-align-justify"></i>
+          </button>
+
+          <a href="{% url 'dashboard:login' %}" class="btn btn-sm btn-warning" style="margin-left:62%;">Login <i class="fas fa-sign-in-alt"></i>
+            </a>
+          <a href="{% url 'dashboard:signup' %}"class="btn btn-sm btn-warning">Register <i class="fas fa-user-plus"></i> </a>
         </div>
       </nav>
 
-      <style>
-        #inputSize{
-          width: 100%;
-        
-          padding: 12px 180px 20px 20px;
-       
+      <img src="static/images/dashboard.jpg" />
 
-
-        }
-      </style>
+    </div>
+  </div>
 
 
 
 
-    
-
-    
-  <br>
-    <ul class="mt-2" id="menu">
-       
-        <li class="btn btn-lg btn-info">
-          Shop Now
-
-          </li>
-
-        <li >
-           
-            <div class="btn-group" >
-                <button type="button" class="btn btn-sm btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <a href="#">Sports and outdoor </a>
-                </button>
-
-                <div class="dropdown-menu" >
-
-                  
-                    
-
-                  <a class="dropdown-item bg-warning" style="color:black;" href="{% url 'category_app:Mens_shoes_and_clothing' %}" style="font-size: 9px;">Men's shoes and clothing</a>
-
-                  <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Women's shoes and clothing</a>
-                  
-                </div>
-              </div>
-
-          </li>
-          <li >
-           
-            <div class="btn-group" >
-                <button type="button" class="btn btn-sm btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <a href="#">Electronic Devices </a>
-                </button>
-
-                <div class="dropdown-menu" >
-
-                  
-                    
-
-                  <a class="dropdown-item bg-warning" style="color:black;" href="#" style="font-size: 9px;">Laptop</a>
-                  <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Desktop</a>
-                  <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Camera</a>
-                  <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Mobile</a>
-
-                  
-                </div>
-              </div>
-
-          </li>
-          <li >
-           
-            <div class="btn-group" >
-                <button type="button" class="btn btn-sm btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <a href="#">Electronic accessories </a>
-                </button>
-
-                <div class="dropdown-menu" >
-
-                  
-                    <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Laptop accessories</a>
-                    <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Storage</a>
-                  <a class="dropdown-item bg-warning" style="color:black;" href="#" style="font-size: 9px;">Mobile accessories</a>
-                  <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Antivirus</a>
-                  <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Audio</a>
-                  <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Camera accessories</a>
-                  
-                </div>
-              </div>
-
-          </li>
-          <li >
-           
-            <div class="btn-group" >
-                <button type="button" class="btn btn-sm btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <a href="#">Groceries </a>
-                </button>
-
-                <div class="dropdown-menu" >
-                  <a class="dropdown-item bg-warning" style="color:black;" href="#" style="font-size: 9px;">Breakfast & Snacks</a>
-
-                  <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Wines,beers,& spirits</a>
-                  <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Cooking ingredients</a>
-                  
-                </div>
-              </div>
-
-          </li>
-
-          <li >
-           
-            <div class="btn-group" >
-                <button type="button" class="btn btn-sm btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <a href="#">Homes and Lifestyle </a>
-                </button>
-
-                <div class="dropdown-menu" >
-
-                  
-                    
-
-                  <!-- <a class="dropdown-item bg-warning" style="color:black;" href="#" style="font-size: 9px;">Furniture</a> -->
-                  <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Kitchen,Dining,&Bedding</a>
-                  <!-- <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Musical instruments</a> -->
-                  <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Media,Books,& Music</a>
-                  <!-- <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Bedding</a> -->
-                  
-                </div>
-              </div>
-
-          </li>
-          <li >
-           
-            <div class="btn-group" >
-                <button type="button" class="btn btn-sm btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <a href="#">Watch and accessories </a>
-                </button>
-
-                <div class="dropdown-menu" >
-
-                  
-                    
-
-                  <a class="dropdown-item bg-warning" style="color:black;" href="#" style="font-size: 9px;">Watches</a>
-
-                  <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Sunglasses and Eyeglasses</a>
-
-                  
-                </div>
-              </div>
-
-          </li>
-          <li >
-           
-            <div class="btn-group" >
-                <button type="button" class="btn btn-sm btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <a href="#">Health and Beauty </a>
-                </button>
-
-                <div class="dropdown-menu" >
-
-                  
-                    
-
-                  <!-- <a class="dropdown-item bg-warning" style="color:black;" href="#" style="font-size: 9px;">Hair care</a> -->
-                  <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Make up and Body care </a>
-                  <!-- <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Medical supplies</a> -->
-                  <a class="dropdown-item bg-warning" style="color:black;"  href="#"  style="font-size: 9px;">Food Supplements</a>
-                  
-                </div>
-              </div>
-
-          </li>
-      
-
-       
-        
-    </ul>
-<img src="static/images/dashboard.jpg" />
 
 
-<style>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+  <style>
     img {
-        width: 70%;
-        height: 440px;
-        margin-top: 1%;
-        margin-bottom: 30%;
-        margin-left:20%;
+      width: 100%;
+      height: 500px;
+      margin-top: 1%;
+      margin-bottom: 30%;
+      margin-left: 0%;
     }
 
     body {
-        background-color:#F5F5DC;
+      background-color: #F5F5DC;
     }
-    ul#menu li{
-        display:inline;
-        text-decoration:none;
+
+    ul#menu li {
+      display: inline;
+      text-decoration: none;
     }
-  
-    
-</style>
+
+
+
+    #inputSize {
+      /*for search input design */
+      width: 100%;
+
+      padding: 12px 180px 20px 20px;
+
+
+
+    }
+  </style>
 </body>
+
 </html>
+
+

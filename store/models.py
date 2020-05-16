@@ -2,19 +2,32 @@ from django.db import models
 
 from django.contrib.auth.models import User
 
-# Create your models here.
-
+from django.dispatch import receiver
+from django.db.models.signals import post_save#user object  signal create hunxa
 
 class Customer(models.Model):
-	user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+	user = models.OneToOneField(User,on_delete=models.CASCADE)
 	name = models.CharField(max_length=200, null=True)
 	email = models.CharField(max_length=200)
-
+		   
+	def save(self,*args,**kwargs):
+		super().save(*args,**kwargs)
+		
+		
 	def __str__(self):
-		return self.name
+		return self.user.username    #i use this function because i dont use null =True in use
+
+
+	@receiver(post_save, sender = User)#post save paxi uend by user--for register
+	def update_profile(sender,instance,created,*args,**kwargs):
+     
+		if created:
+			Customer.objects.create(user=instance)
+			instance.customer.save()
 
 
 class Product(models.Model):
+
 	category = (
 		
 			('Mens shoes and clothing','Mens shoes and clothing'),
@@ -28,7 +41,7 @@ class Product(models.Model):
 			('Watches','Watches'),('Sunglasses & Eyeglasses','Sunglasses & Eyeglasses'),
 			('Make up & Body care','Make up & Body care'),('Food supplements','Food supplements')
    		
-            
+			
 
 
 	)

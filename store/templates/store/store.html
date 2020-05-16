@@ -1,17 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block js %}
-<script src="{% static 'search_ajax/products.js' %}"></script>
-{% endblock %}
+
 
 {% load static %}
 {% block content %}
+
+
+{% include 'store/search.html' %}
+
 <div class="container mt-4">
 	<div class="card">
 
 		<div class="card-header">
-			<h3>Products warehouse</h3>
+			<div class="row">
+				<div class="col">
+					<h3>Products warehouse</h3>
+				</div>
+				<div class="col mt-0" style="margin-left:300px;">
+					<h3>Total Products : {{products_count}}</h3>
+				</div>
+			</div>
+			
 		</div>
 
 	</div>

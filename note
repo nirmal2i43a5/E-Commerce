@@ -7,3 +7,22 @@ https://carlofontanos.com/checkout/order-received/10957/?key=wc_order_oCkNDQ0NMX
 =>One customer can have only one order id and many product id
 =>In this project quantity add and remove is done with same id that is used for adding cart item to the cart
 =>Main thing involves to add item to the cart are (data-action,class,data-product={{product.id}})
+
+
+-------------------------------------------------------------------------------------
+=>https://simpleisbetterthancomplex.com/tutorial/2016/10/24/how-to-add-social-login-to-django.html
+
+-----------------------------------Handling errors-----------------------
+when i open in incognite window it gives errror when i process_order or when click payment option
+
+Error:
+-------------------------------------------------------------
+(index):320 POST http://127.0.0.1:9000/process_order/ 403 (Forbidden)
+submitFormData @ (index):320
+(anonymous) @ (index):285
+(index):1 Uncaught (in promise) SyntaxError: Unexpected token < in JSON at position 1
+------------------------------------------------------------------------------
+To solve this i must use @csrf_except in process_order views
+
+
+

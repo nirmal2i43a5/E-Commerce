@@ -25,10 +25,11 @@ def store(request):
 		items = cookieData['items']
 
 	products = Product.objects.all()
+	products_count = products.count()
 
 	# products = Product.objects.filter(category='Electric items')#render only electric item products
 	
-	context = {'products':products, 'cartItems':cartItems,'items':items}
+	context = {'products':products, 'cartItems':cartItems,'items':items,'products_count':products_count}
 	return render(request, 'store/store.html', context)
 
 
@@ -52,6 +53,9 @@ def cart(request):#we have to handle cart for both login and non login user
 	context = {'items':items,'order':order,'cartItems':cartItems}#this is the order of above created in line 16
 	return render(request,'store/cart.html',context)
 
+
+
+
 def checkout(request):
 	if request.user.is_authenticated:
 		cart_data = cartData(request)
@@ -69,8 +73,6 @@ def checkout(request):
 	context = {'items':items,'order':order,'cartItems':cartItems}#this is the order of above created in line 16
 	return render(request,'store/checkout.html',context)
 	
-
-
 
 def updateItem(request):
 	data = json.loads(request.body)
@@ -128,12 +130,14 @@ def processOrder(request):
 		zipcode=data['shipping']['zipcode'],
 		)
 
-	return JsonResponse('Payment submitted.(rsponse from processOrder views)', safe=False)
+	return JsonResponse('Payment submitted.(response from processOrder views)', safe=False)
 
 def product_view(request):
 	return render(request,'store/product_desc.html')
 
+
 def search(request):
+	
 	data = dict()
 	field_value = request.GET.get('query')
 	print(field_value)
@@ -145,9 +149,19 @@ def search(request):
 		return JsonResponse(data)
 
 	else:
+	
+	
 		products = Product.objects.all()
 	   
 		context = {'products': products}
 		data['html_list'] = render_to_string('store/get_search_products.html',context,request=request)
 
 		return JsonResponse(data)
+
+
+
+
+
+
+	
+	

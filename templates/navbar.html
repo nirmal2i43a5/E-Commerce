@@ -14,13 +14,26 @@
             </li>
        
           </ul>
-                  {% include 'search.html' %}
-                  
+                
+
           <div class="form-inline my-2 my-lg-0">
-               <a href="#"class="btn btn-warning"><i class="fas fa-sign-in-alt"></i> Login</a>
+              
                
-               <a href="{% url 'store_app:cart' %}">
-                  <img  id="cart-icon" src="{% static 'images/cart.jpg' %}">
+               {% if user.is_authenticated %}
+
+              <div class="btn btn-sm btn-warning mr-4"> Hello, {{request.user.email}}</div>
+
+               <a href="/logout"class="btn btn-warning">Log Out <i class="fas fa-sign-out-alt"></i> </a>
+
+              {% else %}
+
+              <div class="btn btn-sm btn-warning mr-4"> Hello, Anonymous User</div>
+              <a href="/login"class="btn btn-warning">Login <i class="fas fa-sign-in-alt"></i> </a>
+              {% endif %}
+              
+
+               <a class="ml-4" href="{% url 'store_app:cart' %}">
+                 <i class="fas fa-2x fa-shopping-cart"></i>
               </a>
               <p id="cart-total">{{cartItems}}</p>
   

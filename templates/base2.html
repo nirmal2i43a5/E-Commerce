@@ -1,0 +1,39 @@
+
+
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+
+{% block head %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %}  {% endblock %}</title>
+</head>
+
+{% include 'css.html' %}
+
+{% endblock %}
+
+
+<body>
+
+   
+
+
+ <div class="container">
+     <br>
+    {% block content %}{% endblock %}
+    
+ </div>
+<!--for bootstrap js,popper.js,jQuery-->
+ {% include 'js.html' %}
+
+
+
+
+</body>
+
+</html>

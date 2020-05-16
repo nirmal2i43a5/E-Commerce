@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce</title>
+  {% include 'css.html' %}
+  {% include 'js.html' %}
+
+  <!--below link is for toggle bar-->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+  <br>
+
+
+
+  <div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+      
+
+      <ul class="list-unstyled components">
+
+        <li>
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Sports and
+            outdoor</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li>
+              <a href="{% url 'category_app:mens_items' %}">Men's shoes and clothing</a>
+            </li>
+            <li>
+              <a href="{% url 'category_app:womens_items' %}">Women's shoes and clothing</a>
+            </li>
+
+          </ul>
+        </li>
+
+       
+        <li>
+          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Electronic
+            Devices</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+            <li>
+              <a href="{% url 'category_app:laptops' %}">Laptop</a>
+            </li>
+            <li>
+              <a href="{% url 'category_app:cameras' %}">Camera</a>
+            </li>
+            <li>
+              <a href="{% url 'category_app:mobiles' %}">Mobile</a>
+            </li>
+          </ul>
+        </li>
+        
+        <li>
+          <a href="#pageSubmenu" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">Electronic
+            accessories</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+            <!-- <li>
+              <a href="#">Laptop accessories</a>
+            </li>
+            <li>
+              <a href="#">Camera accessories</a>
+            </li>
+            <li>
+              <a href="#">Mobile accessories</a>
+            </li>
+            <li>
+              <a href="#">Storage</a>
+            </li>
+            <li>
+              <a href="#">Storage</a>
+            </li>
+            <li>
+              <a href="#">Antivirus</a>
+            </li>
+            <li>
+              <a href="#">Audio</a>
+            </li> -->
+          </ul>
+        </li>
+        <li>
+          <a href="#pageSubmenu" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">Groceries</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+            <!-- <li>
+              <a href="">Breakfast and snacks</a>
+            </li>
+            <li>
+              <a href="">Beer,wine, & drinks</a>
+            </li>
+            <li>
+              <a href="">Cooking Ingredients</a>
+            </li> -->
+          </ul>
+        </li>
+
+        <li>
+          <a href="#pageSubmenu" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">Home and Lifestyle</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+            <!-- <li>
+              <a href="#"></a>
+            </li>
+            <li>
+              <a href="#">Kitchen,Dining,&Bedding</a>
+            </li>
+            <li>
+              <a href="#">Media,Books, and Music</a>
+            </li> -->
+          </ul>
+        </li>
+     
+        <li>
+          <a href="#pageSubmenu" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle"> Watch and accessories</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+            <!-- <li>
+              <a href="#"></a>
+            </li>
+            <li>
+              <a href="#">Watches</a>
+            </li>
+            <li>
+              <a href="#">Sunglasses and Eyeglasses</a>
+            </li> -->
+          </ul>
+        </li>
+      </ul>
+
+
+
+    </nav>
+
+
+    <div id="content">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <div class="container-fluid">
+
+          <button type="button" id="sidebarCollapse" class="btn btn-warning">
+            <i class="fas fa-align-left"></i>
+            <span>Toggle Sidebar</span>
+          </button>
+          <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa-align-justify"></i>
+          </button>
+
+          <a href="{% url 'dashboard:login' %}" class="btn btn-sm btn-warning" style="margin-left:62%;">Login <i class="fas fa-sign-in-alt"></i>
+            </a>
+          <a href="{% url 'dashboard:signup' %}"class="btn btn-sm btn-warning">Register <i class="fas fa-user-plus"></i> </a>
+        </div>
+      </nav>
+
+    
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+  <style>
+    
+
+    body {
+      background-color: #F5F5DC;
+    }
+
+    ul#menu li {
+      display: inline;
+      text-decoration: none;
+    }
+
+
+
+    #inputSize {
+      /*for search input design */
+      width: 100%;
+
+      padding: 12px 180px 20px 20px;
+
+
+
+    }
+  </style>
+</body>
+
+</html>
+
+
