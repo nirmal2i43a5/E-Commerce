@@ -1,15 +1,19 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% block title %}Mens_items{% endblock %}
 {% block content %}
-<div class="container mt-4" style="margin-left:10%;">
+
+{% include 'category/sports_outdoors/mens/search_form.html' %}
+
+<div class="container mt-4">
 
 	<div class="card">
 
 		<div class="card-header">
 			<div class="row">
 				<div class="col">
-					<h3>Men's shoes and clothing</h3>
+					<h4>Men's shoes and clothing</h4>
 				</div>
 				<div class="col mt-0" style="margin-left:300px;">
 					<h3>Total Products : {{products_count}}</h3>

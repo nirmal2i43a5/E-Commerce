@@ -58,9 +58,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                #below for social media
-                 'social_django.context_processors.backends', 
-                'social_django.context_processors.login_redirect', 
+              
             ],
         },
     },
@@ -142,6 +140,16 @@ AUTHENTICATION_BACKENDS = (
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 # EMAIL_PORT = config('EMAIL_PORT', cast=int)
+
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = config('EMAIL_PORT', cast = int)
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')#this is the jjpassword that i use in gmail 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 
 
  

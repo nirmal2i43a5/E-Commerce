@@ -146,3 +146,21 @@ class ShippingAddress(models.Model):
 
 	def __str__(self):
 		return self.address
+
+
+# class Image(models.Model):
+# 	product = models.ForeignKey(Product, on_delete=models.CASCADE)
+# 	name = models.CharField(max_length=200)
+# 	particular_image = models.ImageField()
+
+# 	def __str__(self):
+# 		return self.name
+
+# 	@property
+# 	def imageURL(self):
+# 		try:
+# 			url = self.image.url
+# 		except:
+# 			url = ''
+# 		print('URL:', url)
+# 		return url

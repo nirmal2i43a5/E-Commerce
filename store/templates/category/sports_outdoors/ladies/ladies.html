@@ -1,19 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block title %}Womens_items{% endblock %}
 {% block js %}
 <script src="{% static 'search_ajax/products.js' %}"></script>
 {% endblock %}
 
 {% load static %}
 {% block content %}
+
+{% include 'category/sports_outdoors/ladies/search_form.html' %}
+
 <div class="container mt-4">
 	<div class="card">
 
 		<div class="card-header">
 			<div class="row">
 				<div class="col">
-					<h3>Mobile Items</h3>
+					<h4>Women's shoes and clothing</h4>
 				</div>
 				<div class="col mt-0" style="margin-left:300px;">
 					<h3>Total Products : {{products_count}}</h3>

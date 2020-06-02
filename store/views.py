@@ -132,32 +132,33 @@ def processOrder(request):
 
 	return JsonResponse('Payment submitted.(response from processOrder views)', safe=False)
 
+
+
+
+
 def product_view(request):
-	return render(request,'store/product_desc.html')
-
-
-def search(request):
-	
-	data = dict()
-	field_value = request.GET.get('query')
-	print(field_value)
-	
-	if field_value:
-		products = Product.objects.filter(name__icontains = field_value)
-		data['html_list'] = render_to_string('store/get_search_products.html',{'products':products},request = request)
-		
-		return JsonResponse(data)
-
+	if request.user.is_authenticated:
+		cart_data = cartData(request)
+		cartItems = cart_data['cartItems']
+		order = cart_data['order']
+		items = cart_data['items']
+  
+  	
 	else:
-	
-	
-		products = Product.objects.all()
-	   
-		context = {'products': products}
-		data['html_list'] = render_to_string('store/get_search_products.html',context,request=request)
+		#Create empty cart for now for non-logged in user
+		cookieData = cookieCart(request)
+		cartItems = cookieData['cartItems']
+		order = cookieData['order']
+		items = cookieData['items']
 
-		return JsonResponse(data)
+	particular_products = Product.objects.filter(image =product.imageUrl)
+	products = Product.objects.all()
+	products_count = product.count()
 
+	# products = Product.objects.filter(category='Electric items')#render only electric item products
+	
+	context = {'products':particular_products, 'cartItems':cartItems,'items':items,'products_count':products_count}
+	return render(request,'store/product_desc.html',context)
 
 
 

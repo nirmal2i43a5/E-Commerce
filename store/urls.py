@@ -1,7 +1,7 @@
  
 from django.urls import path
 
-from . import views,category_views
+from . import views,category_views,category_search
 from django.views.generic import TemplateView
 
 
@@ -17,6 +17,6 @@ urlpatterns = [
   	#  path('search_update_item/',views.searchUpdateItem,name="search_update_item"),
 	path('process_order/',views.processOrder,name = "process_order"),
 	path('view/',views.product_view,name="view"),
-	path('search/',views.search,name="search"),
+	path('search/',category_search.search_store,name="search-store"),
 
 ]

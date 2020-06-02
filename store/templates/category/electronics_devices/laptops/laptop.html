@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block title %}Laptops{% endblock %}
 {% block js %}
 <script src="{% static 'search_ajax/products.js' %}"></script>
 {% endblock %}
 
 {% load static %}
 {% block content %}
+
+{% include 'category/electronics_devices/laptops/search_form.html' %}
 <div class="container mt-4">
 	<div class="card">
 
 		<div class="card-header">
 			<div class="row">
 				<div class="col">
-					<h3>Women's shoes and clothing</h3>
+					<h3>Laptop Items</h3>
 				</div>
 				<div class="col mt-0" style="margin-left:300px;">
 					<h3>Total Products : {{products_count}}</h3>
@@ -30,7 +32,7 @@
 
 			{% for product in products %}
 
-			<div class="col-lg-2">
+			<div class="col-lg-3">
 
 				<img class="thumbnail" src="{{product.imageUrl}}">
 				<!--use imageUrl is defined in @decorator in Product model-->
