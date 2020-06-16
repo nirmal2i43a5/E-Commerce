@@ -2,9 +2,13 @@
     {% load static %}
     <nav class="navbar navbar-expand-lg navbar-info bg-info">
         <a class="navbar-brand" style="color:white;" href="/">E-commerce</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+
+        <!--downward toggle-->
+        
+          <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-align-justify"></i>
+          </button>
        
   
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -56,6 +60,7 @@
 
 
       <script type="text/javascript">
+        
         var user = '{{request.user}}'
     
         function getToken(name) {
@@ -75,12 +80,13 @@
         }
    
 
+      
 
         //set cookie for guest checkout 
         var csrftoken = getToken('csrftoken')
         
 
-		function getCookie(name) {
+		function getCookie(name) {//grab browser cookie 
 		    // Split cookie string and get all individual name=value pairs in an array
 		    var cookieArr = document.cookie.split(";");
 
@@ -99,6 +105,8 @@
 		    // Return null if not found
 		    return null;
     }
+
+
   //When a visitor comes to our website, we want to create a cookie for our cart. Regardless of whether they are logged in or not.
     var cart = JSON.parse(getCookie('cart'))//'cart' argument come from addCookieItem in cart.js
     //i use this in guest checkout concept for non login user
@@ -115,5 +123,43 @@
       ==>If we don't add ";domain=;path/" then we will create a new cookie on each page and our cart will NOT be consistent, so be sure to add this.*/
 
 
+//for guest user device id 
+
+
+
+function getCookieValue(name) {//https://docs.djangoproject.com/en/3.0/ref/csrf/
+  var cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+          }
+      }
+  }
+  return cookieValue;
+}
+
+
+		function uuidv4() {
+		  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+		    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+		    return v.toString(16);
+		  });
+		}
+
+
+
+
+		let device = getCookieValue('device')
+
+		if (device == null || device == undefined){//it checks in the cookie and if there is already device id then it dont create else create
+			device = uuidv4()//generate id
+		}
+
+		document.cookie ='device=' + device + ";domain=;path=/"
 
 </script>

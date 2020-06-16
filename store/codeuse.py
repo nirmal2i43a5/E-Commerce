@@ -4,8 +4,8 @@ from .models import *
 def cartData(request):
 	customer = request.user.customer
 	
-	print(customer)
-	print(customer,"I am in cartData")
+	# print(customer)
+	# print(customer,"I am in cartData")
 	order,created = Order.objects.get_or_create(customer=customer, complete=False)
 	items = order.orderitem_set.all()
 	cartItems = order.get_cart_items
@@ -15,6 +15,7 @@ def cookieCart(request):
 	#Create empty cart for now for non-logged in user
 	try:
 		cart = json.loads(request.COOKIES['cart'])#get cookie data
+		
 	
 	except:
 		cart = {}

@@ -25,4 +25,23 @@ submitFormData @ (index):320
 To solve this i must use @csrf_except in process_order views
 
 
+Paypal integration :
+1 ) sentbox account is fake account in paypal that means any account that we create goes to dumpy account
+2 ) debit or  credit card option does not work if i dont have ssl certificate 
+3 ) In sentbox create two account money one is for sending(business) another for receiving(personal)
 
+
+Paypal Documentation
+- Button demos: https://developer.paypal.com/demo/che...
+
+- Button styling: https://developer.paypal.com/docs/arc...
+
+- Sandbox accounts: https://developer.paypal.com/develope...
+
+
+for guest order:
+=>At first i have use cookie to store data which i found is not pertinent
+=>So later i save the user device id (generic or unique id) and also send their their product
+
+In using device id I get error when add to cart in product_desc
+=>'AnonymousUser' object has no attribute 'customer' error? I will handel it later

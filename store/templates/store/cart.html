@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-
+{% if order != None %}
 
 	<div class="row">
 		<div class="col-lg-10">
@@ -71,4 +71,8 @@
 			</div>
 		</div>
 	</div>
+
+	{% else %}
+	<h1 style="text-align:center;padding: 100px">No Items in cart</h1>
+	{% endif %}
 {% endblock content %}

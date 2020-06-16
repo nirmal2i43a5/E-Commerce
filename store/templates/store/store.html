@@ -14,11 +14,11 @@
 
 		<div class="card-header">
 			<div class="row">
-				<div class="col">
+				<div class="col" style="margin-left:50px ;">
 					<h3>Products warehouse</h3>
 				</div>
-				<div class="col mt-0" style="margin-left:300px;">
-					<h3>Total Products : {{products_count}}</h3>
+				<div class="col mt-0" style="margin-left:80px;">
+					<h5>Total Products : {{products_count}}</h5>
 				</div>
 			</div>
 			
@@ -60,7 +60,7 @@
 						class="btn btn-outline-secondary add-btn update-cart ">
 						Add to Cart
 					</button>
-					<a class="btn btn-outline-success" href="{% url 'store_app:view' %}">View Details</a>
+					<a class="btn btn-outline-success" data-product = {{product.id}} href="{% url 'store_app:view' product.id %}">View Details</a>
 
 
 				</div>

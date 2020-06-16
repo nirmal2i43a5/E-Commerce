@@ -59,28 +59,33 @@ function updateUserOrder(productId, action){
 	console.log('User is authenticated, sending data...')
 
 		var url = '/update_item/'
-
-		fetch(url, {//create and use the fetch api to send a post request. to views
-			method:'POST',
-			headers:{
-				'Content-Type':'application/json',
-                'X-CSRFToken':csrftoken,//after you use getToken or getCookie include this =>cookie funation is in navbar.html
-
-                /*Now, before we send this data we need to take care of creating and sending a csrftoken along with it otherwise
-                Django wont let us send a post request without one. We'll cover this in the next step*/
-               
-                /*Because we are using Javascript to send data and are not actually submitting a form so we will 
-                need to create our own token and pass it in with the post data. */
-            }, 
-           // In the post request we want to stringify and send our productId and action as a Json object. 
-			body:JSON.stringify({'productId':productId, 'action':action})
-		})
+		
+	
+			fetch(url, {//create and use the fetch api to send a post request. to views
+				method:'POST',
+				headers:{
+					'Content-Type':'application/json',
+					'X-CSRFToken':csrftoken,//after you use getToken or getCookie include this =>cookie funation is in navbar.html
+	
+					/*Now, before we send this data we need to take care of creating and sending a csrftoken along with it otherwise
+					Django wont let us send a post request without one. We'll cover this in the next step*/
+				   
+					/*Because we are using Javascript to send data and are not actually submitting a form so we will 
+					need to create our own token and pass it in with the post data. */
+				}, 
+			   // In the post request we want to stringify and send our productId and action as a Json object. 
+				body:JSON.stringify({'productId':productId, 'action':action})
+			})
 		.then((response) => {
 		   return response.json();
 		})
 		.then((data) => {
 		   location.reload()// This will alow us to see changes appear in our cart immediately once we render them.
 		});
+
+
+
+
 }
 
 

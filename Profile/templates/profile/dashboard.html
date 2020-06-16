@@ -17,19 +17,7 @@
 </head>
 
 <body>
-
-
-
-
-
-
-
-
-
   <br>
-
-
-
   <div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar">
@@ -53,7 +41,7 @@
           </ul>
         </li>
 
-       
+
         <li>
           <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Electronic
             Devices</a>
@@ -69,7 +57,7 @@
             </li>
           </ul>
         </li>
-        
+
         <li>
           <a href="#pageSubmenu" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">Electronic
             accessories</a>
@@ -113,7 +101,8 @@
         </li>
 
         <li>
-          <a href="#pageSubmenu" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">Home and Lifestyle</a>
+          <a href="#pageSubmenu" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">Home and
+            Lifestyle</a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
             <!-- <li>
               <a href="#"></a>
@@ -126,9 +115,10 @@
             </li> -->
           </ul>
         </li>
-     
+
         <li>
-          <a href="#pageSubmenu" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle"> Watch and accessories</a>
+          <a href="#pageSubmenu" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle"> Watch and
+            accessories</a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
             <!-- <li>
               <a href="#"></a>
@@ -142,9 +132,6 @@
           </ul>
         </li>
       </ul>
-
-
-
     </nav>
 
 
@@ -153,19 +140,30 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <div class="container-fluid">
 
-          <button type="button" id="sidebarCollapse" class="btn btn-warning">
+          <button style="margin-right:65%;" type="button" id="sidebarCollapse" class="btn btn-warning">
             <i class="fas fa-align-left"></i>
             <span>Toggle Sidebar</span>
           </button>
+
+          <!--downward toggle-->
+
           <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-align-justify"></i>
           </button>
 
-          <a href="{% url 'dashboard:login' %}" class="btn btn-sm btn-warning" style="margin-left:62%;">Login <i class="fas fa-sign-in-alt"></i>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="float-right mt-3">
+          
+            <a href="{% url 'dashboard:login' %}" class="btn btn-sm btn-warning">Login <i
+                class="fas fa-sign-in-alt"></i>
             </a>
-          <a href="{% url 'dashboard:signup' %}"class="btn btn-sm btn-warning">Register <i class="fas fa-user-plus"></i> </a>
+            <a href="{% url 'dashboard:signup' %}" class="btn btn-sm btn-warning">Register <i
+                class="fas fa-user-plus"></i> </a>
+              </div>
+
+         </div>
+
         </div>
       </nav>
 
@@ -228,5 +226,3 @@
 </body>
 
 </html>
-
-
