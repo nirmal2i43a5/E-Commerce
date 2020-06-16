@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import JsonResponse
 import json
 import datetime
@@ -35,6 +35,13 @@ def store(request):
 
 
 def cart(request):#we have to handle cart for both login and non login user
+	# try:
+	# 	customer = request.user.customer
+	# except:
+	# 	device = request.COOKIES['device']
+	# 	customer, created = Customer.objects.get_or_create(device=device)
+
+	# order, created = Order.objects.get_or_create(customer=customer, complete=False)
 	if request.user.is_authenticated:
 		cart_data = cartData(request)
 		cartItems = cart_data['cartItems']
@@ -48,9 +55,11 @@ def cart(request):#we have to handle cart for both login and non login user
 		order = cookieData['order']
 		items = cookieData['items']
   
+	
 		
 
 	context = {'items':items,'order':order,'cartItems':cartItems}#this is the order of above created in line 16
+
 	return render(request,'store/cart.html',context)
 
 
@@ -85,10 +94,12 @@ def updateItem(request):
 	product = Product.objects.get(id=productId)
 	order, created = Order.objects.get_or_create(customer=customer, complete=False)
 
+
 	orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
 
 	if action == 'add':#both for add to cart and cart quantity update
 		orderItem.quantity = (orderItem.quantity + 1)
+  
 	elif action == 'remove':
 		orderItem.quantity = (orderItem.quantity - 1)
 
@@ -135,31 +146,40 @@ def processOrder(request):
 
 
 
+#for guest user
+def product_view(request, pk):
+	product = Product.objects.get(id=pk)
 
-def product_view(request):
-	if request.user.is_authenticated:
-		cart_data = cartData(request)
-		cartItems = cart_data['cartItems']
-		order = cart_data['order']
-		items = cart_data['items']
+
+
+	if request.method == 'POST':
+	 
+		print("---------I am post ------------------------")
+		product = Product.objects.get(id=pk)
   
-  	
-	else:
-		#Create empty cart for now for non-logged in user
-		cookieData = cookieCart(request)
-		cartItems = cookieData['cartItems']
-		order = cookieData['order']
-		items = cookieData['items']
-
-	particular_products = Product.objects.filter(image =product.imageUrl)
-	products = Product.objects.all()
-	products_count = product.count()
-
-	# products = Product.objects.filter(category='Electric items')#render only electric item products
+		#Get guest user account information
+		try:
+			
+			customer = request.user.customer #lfor ogin in user
+   	 	
+		except:
+			device = request.COOKIES['device']#grab the cookie from front end
+			print(f'--------------Device id is :: {device}--------------------------')
+			customer, created = Customer.objects.get_or_create(device=device)#if we have dont customer in database then create device id
+			print("---------I am before redirect ------------------------")
+		
+		order, created = Order.objects.get_or_create(customer=customer, complete=False)
+		orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
+  
+		orderItem.quantity=request.POST['quantity']
+		orderItem.save()
 	
-	context = {'products':particular_products, 'cartItems':cartItems,'items':items,'products_count':products_count}
-	return render(request,'store/product_desc.html',context)
+		return redirect('cart')
 
+	context = {'product':product}
+	return render(request, 'store/product_desc.html', context)
+
+	
 
 
 
