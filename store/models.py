@@ -7,18 +7,27 @@ class Customer(models.Model):
 	user = models.OneToOneField(User,on_delete=models.CASCADE)
 	name = models.CharField(max_length=200, null=True)
 	email = models.CharField(max_length=200)
+	device = models.CharField(max_length=200, null=True, blank=True)#if the user does not have username or email we add device id
+
 		   
 	def save(self,*args,**kwargs):
 		super().save(*args,**kwargs)
 		
 		
+	# def __str__(self):
+	# 	return self.user.username    #i use this function because i dont use null =True in use
+
 	def __str__(self):
-		return self.user.username    #i use this function because i dont use null =True in use
+		if self.name:
+			name = self.name
+		else:
+			name = self.device
+		return str(name)
 
 
 	@receiver(post_save, sender = User)#post save paxi uend by user--for register
 	def update_profile(sender,instance,created,*args,**kwargs):
-     
+	 
 		if created:
 			Customer.objects.create(user=instance)
 			instance.customer.save()
@@ -44,6 +53,7 @@ class Product(models.Model):
 	digital = models.BooleanField(default=False, null=True, blank=True)
 	image = models.ImageField(upload_to='images', null=True, blank=True)
 	category=models.CharField(max_length=200,null=True,choices=category)
+
 	
 
 	def __str__(self):
