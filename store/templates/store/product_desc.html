@@ -2,26 +2,33 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/img_slide_view.css' %}">
+<script type="text/javascript" href="{% static 'js/image/slider.js' %}"></script>
+<script type="text/javascript" href="{% static 'js/image/script.js' %}"></script>
 
 <div class="row">
-	<div class="col-lg-6">
-		<img style="border:1px solid #888" src="{{product.imageUrl}}">
+	<div class="col-md-6">
+		{% include 'store/image.html' %}
 	</div>
 
 	<div style="padding:50px" class="col-lg-6">
 
 		<h3>{{product.name}}</h3>
+	
 		<hr>
 		
-		<form method="POST" action="{% url 'store_app:view' product.id %}">
-			{% csrf_token %}
-			<input min="1" value=1 type="number" name="quantity">
-			<input class="btn btn-dark" type="submit" value="Add to Cart">
-		</form>
+
+		<button data-action="add" data-product="{{product.id}}"
+		class="btn btn-info add-btn update-cart ">
+		Add to Cart
+	</button>
+	
+			<hr>
 
 		<h2>Price: ${{product.get_final_price_after_discount}}</h2>
 	</div>
 </div>
+
 
 {% endblock content %}
 
