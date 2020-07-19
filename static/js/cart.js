@@ -50,11 +50,6 @@ $(document).ready(function(){
    
 
   
-
-
-
-
-
 function updateUserOrder(productId, action){
 	console.log('User is authenticated, sending data...')
 

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+
 
 {% block content %}
 {% if order != None %}
@@ -38,6 +38,7 @@
                     {% for item in items %}
 
 				<div class="cart-row">
+
 					<div style="flex:3"><img class="row-image" src="{{item.product.imageUrl}}"></div>
 					<div style="flex:3"><p>{{item.product.name}}</p></div>
 					<div style="flex:4"><p>{{item.product.price}}</p></div>

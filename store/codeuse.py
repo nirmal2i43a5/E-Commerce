@@ -15,7 +15,6 @@ def cookieCart(request):
 	#Create empty cart for now for non-logged in user
 	try:
 		cart = json.loads(request.COOKIES['cart'])#get cookie data
-		
 	
 	except:
 		cart = {}
