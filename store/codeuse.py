@@ -2,9 +2,15 @@ import json
 from .models import *
 
 def cartData(request):
-	customer = request.user.customer
+	# customer = request.user.customer
+
+	'''
+	Using above line before below gives RelatedObjectDoesNotExist at /store/ User has no customer
+	'''
+	customer,created = Customer.objects.get_or_create(user=request.user)
+
 	
-	# print(customer)
+	print(customer)
 	# print(customer,"I am in cartData")
 	order,created = Order.objects.get_or_create(customer=customer, complete=False)
 	items = order.orderitem_set.all()
