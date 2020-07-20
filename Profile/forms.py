@@ -15,15 +15,10 @@ class CustomerLoginForm(AuthenticationForm):
     #i dont need to use username and password field as it is autogenerates
 
 class SignUpForm(UserCreationForm):
-   
     username=forms.CharField(widget=forms.TextInput(attrs={"placeholder": " Enter Username",}))
     email=forms.CharField(widget=forms.TextInput(attrs={"placeholder": " Enter Email",}))
     password1=forms.CharField(widget=forms.TextInput(attrs={"placeholder": " Enter Password",'type' : 'password'}),label=_("Password"))
     password2=forms.CharField(widget=forms.TextInput(attrs={"placeholder": " Confirm Password",'type' : 'password'}),label=_("Confirm Password"))
-    
-
-    
-    
     # email = EmailField(label=_("Email"),required=True) #before i write this Email address bhanera show garxa.so,Email label garkao
     #Email address is protected
 
