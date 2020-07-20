@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.http import JsonResponse
 import json
 import datetime
@@ -165,6 +165,15 @@ def product_view(request, pk):
 	return render(request, 'store/product_desc.html', context)
 
 #i also want to show cart total num in view page
+
+
+# def delete(request,pk):
+#     product = get_object_or_404(Product,pk = pk)
+#     product.delete()
+#     return redirect('/store')
+
+    
+    
 
 
 	
