@@ -4,8 +4,8 @@ from django.http import JsonResponse
 from django.db.models import Q
 from django.template.loader import render_to_string
 from store.models import Product
-def search_store(request):
-    	
+
+def search_store(request):	
 	data = dict()
 	field_value = request.GET.get('query')
 	print(field_value)
@@ -14,17 +14,14 @@ def search_store(request):
 		products = Product.objects.filter(name__icontains = field_value)
 		data['html_list'] = render_to_string('store/get_search_products.html',{'products':products},request = request)
 		
-		return JsonResponse(data)
-
+		return JsonResponse(data=data,safe=False)
 	else:
-	
-	
 		products = Product.objects.all()
 	   
 		context = {'products': products}
 		data['html_list'] = render_to_string('store/get_search_products.html',context,request=request)
 
-		return JsonResponse(data)
+		return JsonResponse(data=data,safe=False)
 
 def search(request,template_name,category):
 	
@@ -64,4 +61,5 @@ def search_womens(request):
  
 def search_mens(request):
     	return search(request,'category/sports_outdoors/mens/get_search_mens.html','Mens shoes and clothing')
+
 	

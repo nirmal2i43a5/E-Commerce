@@ -141,8 +141,6 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 # EMAIL_PORT = config('EMAIL_PORT', cast=int)
 
-
-
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = config('EMAIL_PORT', cast = int)
 EMAIL_USE_TLS = True

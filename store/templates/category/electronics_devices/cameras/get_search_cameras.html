@@ -26,19 +26,18 @@
             class="btn btn-outline-secondary add-btn update-cart ">
             Add to Cart
         </button>
-        <a class="btn btn-outline-success" href="{% url 'store_app:view' %}">View Details</a>
+        <a class="btn btn-outline-success" href="{% url 'store_app:view' product.id %}">View Details</a>
 
 
     </div>
 </div>
 
 {% empty %}
-  <div class="card ml-3" style="padding-right:400px;">
-  
-    <div class="card-body ">
-      <h5 class="card-header"><strong>No Products found ! Please  search with appropriate keywords .</strong></h5>
-      
-    </div>
-  
-  </div>
+{% empty %}
+<div class="card" style="margin-left:200px;">
+ <div class="card-body">
+  <h5 class="card-header"><strong>No Products found ! Please  search with appropriate keywords .</strong></h5>
+ </div>
+
+</div>
 {% endfor %}

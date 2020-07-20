@@ -13,7 +13,7 @@ class Customer(models.Model):
 	def save(self,*args,**kwargs):
 		super().save(*args,**kwargs)
 		
-		
+			
 	# def __str__(self):
 	# 	return self.user.username    #i use this function because i dont use null =True in use
 
@@ -26,7 +26,7 @@ class Customer(models.Model):
 
 
 	@receiver(post_save, sender = User)#post save paxi uend by user--for register
-	def update_profile(sender,instance,created,*args,**kwargs):
+	def update_profile(sender,instance=None,created=False,*args,**kwargs):
 	 
 		if created:
 			Customer.objects.create(user=instance)
