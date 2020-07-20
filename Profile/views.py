@@ -1,5 +1,4 @@
 from django.shortcuts import render,redirect
-
 # from django.contrib.auth import authenticate, login
 from django.contrib.auth.views import LoginView,LogoutView
 from django.views.generic import CreateView
@@ -20,8 +19,7 @@ class CustomerLoginForm(LoginView):
 		if self.request.user.is_superuser:
 			return '/admin/'
 		
-		return '/store'
-	
+		return '/'
 	
 class SignUpView(CreateView):
 	template_name = 'profile/signup.html'
@@ -35,6 +33,8 @@ class SignUpView(CreateView):
 		# user = form.cleaned_data.get('username')
 		# messages.add_message(self.request, messages.INFO, ' Account successfully register for ' +user)
 		return redirect('dashboard:login')
+
+
 
 class Logout(LogoutView):
     pass
