@@ -20,4 +20,5 @@ urlpatterns = [
 	path('view/<str:pk>/',views.product_view,name="view"),
 	path('search/',category_search.search_store,name="search-store"),
 
+
 ]
