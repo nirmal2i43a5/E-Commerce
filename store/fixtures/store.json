@@ -1,6 +1,24 @@
 [
-
-
+{
+    "model": "store.customer",
+    "pk": 18,
+    "fields": {
+        "user": 13,
+        "name": null,
+        "email": "",
+        "device": null
+    }
+},
+{
+    "model": "store.customer",
+    "pk": 19,
+    "fields": {
+        "user": 14,
+        "name": null,
+        "email": "",
+        "device": null
+    }
+},
 {
     "model": "store.customer",
     "pk": 20,
@@ -12,15 +30,13 @@
     }
 },
 {
-    "model": "store.product",
-    "pk": 2,
+    "model": "store.customer",
+    "pk": 21,
     "fields": {
-        "name": "T-Shirt",
-        "price": "200.0",
-        "discount": "5.0",
-        "digital": false,
-        "image": "images/tshirt.jpeg",
-        "category": "Mens shoes and clothing"
+        "user": 1,
+        "name": null,
+        "email": "",
+        "device": null
     }
 },
 {
@@ -33,18 +49,6 @@
         "digital": false,
         "image": "images/pant.jpeg",
         "category": "Mens shoes and clothing"
-    }
-},
-{
-    "model": "store.product",
-    "pk": 5,
-    "fields": {
-        "name": "Kaspersky Antivirus",
-        "price": "450.0",
-        "discount": "0.0",
-        "digital": true,
-        "image": "images/kaspersky_aXHsjiy.jpeg",
-        "category": "Antivirus"
     }
 },
 {
@@ -527,7 +531,18 @@
         "category": "Mobile"
     }
 },
-
+{
+    "model": "store.product",
+    "pk": 55,
+    "fields": {
+        "name": "Xiaomi Mi Note 10 128GB 108MP Penta Camera 6.47\u2033",
+        "price": "389.0",
+        "discount": "5.0",
+        "digital": false,
+        "image": "images/Xiaomi_note_10_b7xv2sk.jpg",
+        "category": "Mobile"
+    }
+},
 {
     "model": "store.order",
     "pk": 1,
@@ -1069,6 +1084,16 @@
     }
 },
 {
+    "model": "store.order",
+    "pk": 55,
+    "fields": {
+        "customer": 21,
+        "date_ordered": "2020-07-20T12:05:37.265Z",
+        "complete": false,
+        "transaction_id": null
+    }
+},
+{
     "model": "store.orderitem",
     "pk": 4,
     "fields": {
@@ -1082,7 +1107,7 @@
     "model": "store.orderitem",
     "pk": 11,
     "fields": {
-        "product": 2,
+        "product": null,
         "order": 1,
         "quantity": 6,
         "date_added": "2020-05-07T12:32:11.372Z"
@@ -1092,7 +1117,7 @@
     "model": "store.orderitem",
     "pk": 12,
     "fields": {
-        "product": 2,
+        "product": null,
         "order": 2,
         "quantity": 3,
         "date_added": "2020-05-09T07:42:48.895Z"
@@ -1112,7 +1137,7 @@
     "model": "store.orderitem",
     "pk": 14,
     "fields": {
-        "product": 2,
+        "product": null,
         "order": 3,
         "quantity": 3,
         "date_added": "2020-05-09T07:43:27.062Z"
@@ -1132,7 +1157,7 @@
     "model": "store.orderitem",
     "pk": 16,
     "fields": {
-        "product": 2,
+        "product": null,
         "order": 4,
         "quantity": 3,
         "date_added": "2020-05-09T07:45:52.281Z"
@@ -1152,7 +1177,7 @@
     "model": "store.orderitem",
     "pk": 18,
     "fields": {
-        "product": 2,
+        "product": null,
         "order": 5,
         "quantity": 1,
         "date_added": "2020-05-09T08:04:42.069Z"
@@ -1192,7 +1217,7 @@
     "model": "store.orderitem",
     "pk": 22,
     "fields": {
-        "product": 5,
+        "product": null,
         "order": 6,
         "quantity": 3,
         "date_added": "2020-05-09T08:22:40.657Z"
@@ -1202,7 +1227,7 @@
     "model": "store.orderitem",
     "pk": 23,
     "fields": {
-        "product": 2,
+        "product": null,
         "order": 7,
         "quantity": 2,
         "date_added": "2020-05-09T08:23:34.556Z"
@@ -1212,7 +1237,7 @@
     "model": "store.orderitem",
     "pk": 24,
     "fields": {
-        "product": 5,
+        "product": null,
         "order": 7,
         "quantity": 2,
         "date_added": "2020-05-09T08:23:37.809Z"
@@ -1282,7 +1307,7 @@
     "model": "store.orderitem",
     "pk": 31,
     "fields": {
-        "product": 2,
+        "product": null,
         "order": 13,
         "quantity": 1,
         "date_added": "2020-05-09T09:55:40.243Z"
@@ -1302,7 +1327,7 @@
     "model": "store.orderitem",
     "pk": 33,
     "fields": {
-        "product": 2,
+        "product": null,
         "order": 15,
         "quantity": 1,
         "date_added": "2020-05-09T10:25:42.367Z"
@@ -1332,7 +1357,7 @@
     "model": "store.orderitem",
     "pk": 37,
     "fields": {
-        "product": 2,
+        "product": null,
         "order": 18,
         "quantity": 5,
         "date_added": "2020-05-09T11:35:31.360Z"
@@ -1412,7 +1437,7 @@
     "model": "store.orderitem",
     "pk": 45,
     "fields": {
-        "product": 2,
+        "product": null,
         "order": 25,
         "quantity": 1,
         "date_added": "2020-05-10T08:46:56.967Z"
@@ -1432,7 +1457,7 @@
     "model": "store.orderitem",
     "pk": 47,
     "fields": {
-        "product": 2,
+        "product": null,
         "order": 26,
         "quantity": 1,
         "date_added": "2020-05-10T08:47:53.900Z"
@@ -1442,7 +1467,7 @@
     "model": "store.orderitem",
     "pk": 48,
     "fields": {
-        "product": 2,
+        "product": null,
         "order": 27,
         "quantity": 1,
         "date_added": "2020-05-10T08:52:16.384Z"
@@ -1462,7 +1487,7 @@
     "model": "store.orderitem",
     "pk": 50,
     "fields": {
-        "product": 2,
+        "product": null,
         "order": 28,
         "quantity": 1,
         "date_added": "2020-05-10T09:36:03.831Z"
@@ -1482,7 +1507,7 @@
     "model": "store.orderitem",
     "pk": 52,
     "fields": {
-        "product": 2,
+        "product": null,
         "order": 29,
         "quantity": 1,
         "date_added": "2020-05-10T10:26:14.489Z"
@@ -1522,7 +1547,7 @@
     "model": "store.orderitem",
     "pk": 57,
     "fields": {
-        "product": 5,
+        "product": null,
         "order": 30,
         "quantity": 4,
         "date_added": "2020-05-11T05:45:56.465Z"
@@ -1532,7 +1557,7 @@
     "model": "store.orderitem",
     "pk": 58,
     "fields": {
-        "product": 5,
+        "product": null,
         "order": 31,
         "quantity": 2,
         "date_added": "2020-05-11T11:43:26.438Z"
@@ -1542,7 +1567,7 @@
     "model": "store.orderitem",
     "pk": 59,
     "fields": {
-        "product": 5,
+        "product": null,
         "order": 32,
         "quantity": 2,
         "date_added": "2020-05-11T11:44:10.945Z"
@@ -1572,7 +1597,7 @@
     "model": "store.orderitem",
     "pk": 62,
     "fields": {
-        "product": 5,
+        "product": null,
         "order": 33,
         "quantity": 1,
         "date_added": "2020-05-11T11:45:33.689Z"
@@ -1602,7 +1627,7 @@
     "model": "store.orderitem",
     "pk": 65,
     "fields": {
-        "product": 5,
+        "product": null,
         "order": 34,
         "quantity": 1,
         "date_added": "2020-05-11T12:01:31.688Z"
@@ -1622,7 +1647,7 @@
     "model": "store.orderitem",
     "pk": 67,
     "fields": {
-        "product": 2,
+        "product": null,
         "order": 35,
         "quantity": 1,
         "date_added": "2020-05-12T03:40:08.166Z"
@@ -1712,7 +1737,7 @@
     "model": "store.orderitem",
     "pk": 77,
     "fields": {
-        "product": 5,
+        "product": null,
         "order": 37,
         "quantity": 1,
         "date_added": "2020-05-13T04:20:50.793Z"
@@ -1742,7 +1767,7 @@
     "model": "store.orderitem",
     "pk": 80,
     "fields": {
-        "product": 5,
+        "product": null,
         "order": 41,
         "quantity": 1,
         "date_added": "2020-05-13T04:44:38.318Z"
@@ -1762,7 +1787,7 @@
     "model": "store.orderitem",
     "pk": 82,
     "fields": {
-        "product": 5,
+        "product": null,
         "order": 43,
         "quantity": 1,
         "date_added": "2020-05-13T04:53:53.733Z"
@@ -1852,7 +1877,7 @@
     "model": "store.orderitem",
     "pk": 94,
     "fields": {
-        "product": 2,
+        "product": null,
         "order": 44,
         "quantity": 1,
         "date_added": "2020-05-13T13:18:42.633Z"
@@ -1932,7 +1957,7 @@
     "model": "store.orderitem",
     "pk": 102,
     "fields": {
-        "product": 5,
+        "product": null,
         "order": 48,
         "quantity": 1,
         "date_added": "2020-05-15T09:26:53.173Z"
@@ -1972,7 +1997,7 @@
     "model": "store.orderitem",
     "pk": 112,
     "fields": {
-        "product": 5,
+        "product": null,
         "order": 53,
         "quantity": 5,
         "date_added": "2020-07-17T05:17:52.019Z"
@@ -1982,7 +2007,7 @@
     "model": "store.orderitem",
     "pk": 119,
     "fields": {
-        "product": 5,
+        "product": null,
         "order": 52,
         "quantity": 4,
         "date_added": "2020-07-17T09:22:32.214Z"
