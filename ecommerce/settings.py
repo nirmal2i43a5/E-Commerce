@@ -121,7 +121,7 @@ STATIC_URL = '/static/'
 
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')#for heroku staticfiles
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
