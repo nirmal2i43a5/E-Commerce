@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Laptops{% endblock %}
+
 {% block js %}
 <script src="{% static 'search_ajax/products.js' %}"></script>
 {% endblock %}
 
-{% load static %}
+
 {% block content %}
 
 {% include 'category/electronics_devices/laptops/search_form.html' %}

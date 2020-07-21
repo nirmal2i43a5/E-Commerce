@@ -26,10 +26,32 @@
 
                                            
                                             
-                                            <input type="submit" name="submit" value="Login" class="btn btn-lg btn-info">
-                                            <a href="{% url 'dashboard:signup' %}" class="small  float-right">Don't have an account ? Sign up !</a><br>
-                                            <div class="form-group float-right d-flex align-items-center justify-content-between"><a class="small" href="/reset_password">Forgot Password ? </a></div>
+                                            <input type="submit" name="submit" value="Login" class="btn btn-block btn-info">
+                                            <!-- <a href="{% url 'dashboard:signup' %}" class="small  float-right">Don't have an account ? Sign up !</a><br>
+                                            <div class="form-group float-right d-flex align-items-center justify-content-between"><a class="small" href="/reset_password">Forgot Password ? </a></div> -->
+                                           
+                                            <div class="form-check mt-2 mr-sm-2">
+                                                <input
+                                                  class="form-check-input"
+                                                  type="checkbox"
+                                                  id="inlineFormCheck"
+                                                />
+                                                <label class="form-check-label" for="inlineFormCheck">
+                                                  Remember me
+                                                </label>
+                                              </div><hr>
 
+                                              <div class="row">
+                                                <div class="col">
+                                                  <div class="small"><a  href="/reset_password/">Forgot Password?</a></div>
+                            
+                            
+                                                </div>
+                                                <div class="col">
+                                                  <div class="small"><a href="{% url 'dashboard:signup'%}"> Create New Account!</a></div>
+                                                </div>
+                                              </div>
+                                            
                                         </form>
                                         
                                     </div>

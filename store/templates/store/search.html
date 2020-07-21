@@ -1,6 +1,10 @@
+
+
 <div class="ml-4">
     <form method="GET" action=" {% url 'store_app:search-store' %}" class="form-inline" id="js-search-form" style="margin-right:30%;">
+
         {% csrf_token %}
+
         <div class="input-group">
           <input class="form-control" type="text" name="query" placeholder="Search for products......" aria-label="Search"/>
           <div class="input-group-append">
@@ -8,6 +12,7 @@
               <button class="btn btn-warning">
                   Search
               </button>
+
           </div>
       </div>
     </form>
