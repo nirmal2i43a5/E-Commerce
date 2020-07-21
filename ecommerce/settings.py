@@ -120,7 +120,7 @@ LOGOUT_REDIRECT_URL = '/login'
 STATIC_URL = '/static/'
 
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')#for heroku staticfiles
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')#for heroku staticfiles
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_DIRS = [
