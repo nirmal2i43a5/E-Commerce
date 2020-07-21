@@ -152,3 +152,5 @@ function getCookieValue(name) {//https://docs.djangoproject.com/en/3.0/ref/csrf/
 		}
 
     document.cookie ='device=' + device + ";domain=;path=/"
+
+

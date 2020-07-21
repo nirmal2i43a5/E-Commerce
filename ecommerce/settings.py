@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'store.apps.StoreConfig',
     'Profile.apps.ProfileConfig',
     'crispy_forms',
-    'social_django',#for authentication with social media
+    # 'social_django',#for authentication with social media
 ]
 
 MIDDLEWARE = [
