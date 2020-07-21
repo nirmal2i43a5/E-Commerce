@@ -118,8 +118,9 @@ class OrderItem(models.Model):
 
 	@property
 	def get_total(self):#particuler orderitem price
-		total = self.quantity * self.product.price
-		return total
+		
+		return self.quantity * self.product.price
+		
 
 	@property
 	def get_total_discount_item_price(self):

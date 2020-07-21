@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 #         default=config('DATABASE_URL')
 #     )
 # }
-
+#using above is for heroku without that also postgres assists it directly but if sqlite is not using then it doesnot support in localhost
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
