@@ -1,14 +1,5 @@
 [
-{
-    "model": "store.customer",
-    "pk": 18,
-    "fields": {
-        "user": 13,
-        "name": null,
-        "email": "",
-        "device": null
-    }
-},
+
 {
     "model": "store.customer",
     "pk": 19,
