@@ -1,15 +1,6 @@
 [
 
-{
-    "model": "store.customer",
-    "pk": 19,
-    "fields": {
-        "user": 14,
-        "name": null,
-        "email": "",
-        "device": null
-    }
-},
+
 {
     "model": "store.customer",
     "pk": 20,
@@ -536,30 +527,7 @@
         "category": "Mobile"
     }
 },
-{
-    "model": "store.product",
-    "pk": 55,
-    "fields": {
-        "name": "Xiaomi Mi Note 10 128GB 108MP Penta Camera 6.47\u2033",
-        "price": "389.0",
-        "discount": "5.0",
-        "digital": false,
-        "image": "images/Xiaomi_note_10_b7xv2sk.jpg",
-        "category": "Mobile"
-    }
-},
-{
-    "model": "store.product",
-    "pk": 56,
-    "fields": {
-        "name": "Xiaomi Mi 9T (128GB, 6GB RAM) 6.39\"",
-        "price": "360.0",
-        "discount": "5.0",
-        "digital": false,
-        "image": "images/mi_9T.jpg",
-        "category": "Mobile"
-    }
-},
+
 {
     "model": "store.order",
     "pk": 1,
