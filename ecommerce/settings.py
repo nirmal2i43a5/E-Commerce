@@ -156,8 +156,10 @@ AUTHENTICATION_BACKENDS = (
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')#this is the jjpassword that i use in gmail 
+# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_USER="nirmalpandey27450112@gmail.com"
+# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')#this is the jjpassword that i use in gmail 
+EMAIL_HOST_PASSWORD='bxktwbcjfzcfrwui'#this is the app password (i use this because i face problem in gmail auth)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
