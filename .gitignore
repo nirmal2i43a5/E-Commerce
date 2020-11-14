@@ -1,6 +1,6 @@
 .env
-bin/
-lib/
+bin
+lib
 notes
 
 # Byte-compiled / optimized / DLL files
